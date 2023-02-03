@@ -1,0 +1,26 @@
+{
+    "name": "quotes-ai-bot",
+    "version": "1.0.0",
+    "description": "a discord bot",
+    "main": "app.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/S-Riches/quotes-discord-bot.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/S-Riches/quotes-discord-bot/issues"
+    },
+    "homepage": "https://github.com/S-Riches/quotes-discord-bot#readme",
+    "dependencies": {
+        "discord.js": "^14.7.1",
+        "jest": "^29.4.1"
+    },
+    "devDependencies": {
+        "@types/jest": "^29.4.0"
+    }
+}
