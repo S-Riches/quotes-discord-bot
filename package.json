@@ -8,7 +8,8 @@
         "start": "node .",
         "--------Tests--------": "",
         "test": "jest",
-        "watchAll": "jest --watchAll"
+        "watchAll": "jest --watchAll",
+        "watchApp": "jest --watch /test/app.test.js"
     },
     "repository": {
         "type": "git",
