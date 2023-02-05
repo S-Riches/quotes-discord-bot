@@ -7,12 +7,11 @@
         "--------Main--------": "",
         "start": "node .",
         "--------Tests--------": "",
-        "test": "jest",
+        "test": "npm run lint && jest",
         "watchAll": "jest --watchAll",
         "watchApp": "jest --watch /test/app.test.js",
         "--------Lint--------": "",
-        "lint" : "npx eslint --fix test && npx eslint --fix src"
-
+        "lint": "npx eslint --fix test && npx eslint --fix src"
     },
     "repository": {
         "type": "git",

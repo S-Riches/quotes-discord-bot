@@ -48,8 +48,8 @@ function createClientInstance() {
             );
             // get the author from the text if present
             let author = string.substring(
-                string.indexOf('-') + 2,
-            );
+                string.indexOf('-') + 1,
+            ).trim();
             if (author == '') {
                 author = 'Anon';
             }
@@ -63,9 +63,9 @@ function createClientInstance() {
                 .setTitle(prompt)
                 .setImage(`attachment://${imageName}`)
                 .setTimestamp()
-                .setColor(0xe1baf7)
-                .setFooter({ text: `Made with ♡ by The Biblically Accurate Quote's Bot`})
-                .setAuthor({ name: author});
+                .setColor(0x4c00a3)
+                .setFooter({ text: 'Made with ♡ by The Biblically Accurate Quote\'s Bot' })
+                .setAuthor({ name: author });
             await client.channels.cache
                 .get(message.channel.id)
                 .send({ embeds: [responseEmbed], files: [file] });

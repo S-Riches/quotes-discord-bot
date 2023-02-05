@@ -1,10 +1,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-const app = require('../src/app.js');
 const dotenv = require('dotenv').config();
 const convert64ToImg = require('../src/convertBase64ToImage.js');
+const path = require('path');
+const fs = require('fs');
+const jsonData = require('./testData/testData.json');
 
-describe('Enviroment variable check test suite', () => {
+describe('Environment variable check test suite', () => {
     test('env values are working', () => {
         const osEnvValue = process.env.os;
         expect(osEnvValue).not.toBeUndefined();
@@ -15,13 +17,26 @@ describe('Enviroment variable check test suite', () => {
     });
 });
 
-describe('Discord bot test suite', () => {
-    // not terribly sure how to test the bot, need to read up on this as it makes the most sense to test commands??
-});
-
 describe('CreateImageTest', () => {
-    test('creates image from base64 data', () => {
-        const jsonData = fetch('./testData.json');
-        convert64ToImg('test', jsonData.testBase64);
+    const dirPath = path.join(__dirname, '../src/images');
+    test('creates image from base64 data', async () => {
+        convert64ToImg.createImage('test', jsonData.testBase64);
+        console.log('Test.jpg created');
+        let doesFileExist;
+        try {
+            if (fs.existsSync(dirPath + '/test.jpg')) {
+                doesFileExist = true;
+            }
+        }
+        catch (err) {
+            console.error(err);
+            doesFileExist = false;
+        }
+        expect(doesFileExist).toBe(true);
+    });
+    afterAll(async () => {
+        console.log('Test.jpg deleted');
+        fs.unlinkSync(`${dirPath}/test.jpg`);
+
     });
 });
