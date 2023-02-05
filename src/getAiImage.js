@@ -6,8 +6,11 @@ async function generateAiImage(promptText) {
         prompt: promptText,
     });
     // currently just prints the data needed for the first result to be converted elsewhere
-    console.log(await result._images[0].base64);
+    // console.log(await result._images[0].base64);
+    return await result._images[0].base64;
 }
-console.log("running script, can take up to 2 minutes, please be patient");
+// console.log("running script, can take up to 2 minutes, please be patient");
 // basic usage atm
-generateAiImage("cheese");
+// generateAiImage("cheese");
+
+module.exports = { generateAiImage };

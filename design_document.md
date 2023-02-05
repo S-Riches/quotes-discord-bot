@@ -17,7 +17,7 @@ very very simple functionality
 
 ## Tasks
 
--   write logic to be able to take input from the user in the quotes channel, using whatever is between the \*"" as a prompt,
+-   write logic to be able to take input from the user in the quotes channel, using whatever is between the \*"" as a prompt / done
 -   write the logic to convert the base64 data into an image see refs:stack overflow image base64
 -   write logic to put the image into a card
 -   potentially look into kafka, for allowing the storage of the base 64 data to allow the user to reroll if they dont like the image
