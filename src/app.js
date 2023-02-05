@@ -46,6 +46,13 @@ function createClientInstance() {
                 string.indexOf('*"') + 2,
                 string.indexOf('"*'),
             );
+            // get the author from the text if present
+            let author = string.substring(
+                string.indexOf('-') + 2,
+            );
+            if (author == '') {
+                author = 'Anon';
+            }
             console.log(`prompt = ${prompt}`);
             const data = await aiImage.generateAiImage(prompt);
             // creates the image
@@ -54,7 +61,11 @@ function createClientInstance() {
             const file = new AttachmentBuilder(`./src/images/${imageName}`);
             const responseEmbed = new EmbedBuilder()
                 .setTitle(prompt)
-                .setImage(`attachment://${imageName}`);
+                .setImage(`attachment://${imageName}`)
+                .setTimestamp()
+                .setColor(0xe1baf7)
+                .setFooter({ text: `Made with ♡ by The Biblically Accurate Quote's Bot`})
+                .setAuthor({ name: author});
             await client.channels.cache
                 .get(message.channel.id)
                 .send({ embeds: [responseEmbed], files: [file] });
