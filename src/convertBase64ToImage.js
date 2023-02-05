@@ -10,7 +10,7 @@ function createImage(fileName, data) {
     // easier to create an image via base64 -> buffer -> image
     const buffer = Buffer.from(data, "base64");
     // * save that image to a local storage instance
-    // handle spaces
+    // handle punctuation to avoid embed issues
     fileName = String(fileName).replace(
         RegExp(/[.,\/#!$%\^&\*;:{}=\-_`~() ]/g),
         "_"
