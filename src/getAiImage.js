@@ -1,4 +1,4 @@
-const { Client } = require("craiyon");
+const { Client } = require('craiyon');
 
 async function generateAiImage(promptText) {
     const craiyon = new Client();
