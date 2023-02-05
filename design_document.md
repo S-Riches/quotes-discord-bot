@@ -10,17 +10,22 @@ for the api testing it runs a call to the api which takes ages to return base64 
 
 -   user types in a prefix like \* followed by quotes " "
     -   e.g \*"a quick brown fox jumping over a lazy fox"
--   the discord bot registers this, then puts a 'card', similar to how vexera puts in the photo when you type +np
--   we await a generated image, then parse it into the 'card' after its generated
+-   the discord bot registers this, then puts a 'card', similar to how vexera puts in the photo when you type +np 
+-   we await a generated image, then parse it into the 'card' after its generated X does it differently 
 
 very very simple functionality
 
 ## Tasks
 
 -   write logic to be able to take input from the user in the quotes channel, using whatever is between the \*"" as a prompt / done
--   write the logic to convert the base64 data into an image see refs:stack overflow image base64
--   write logic to put the image into a card
--   potentially look into kafka, for allowing the storage of the base 64 data to allow the user to reroll if they dont like the image
+-   write the logic to convert the base64 data into an image see refs:stack overflow image base64 / done
+-   write logic to put the image into a card / done
+-   potentially look into kafka, for allowing the storage of the base 64 data to allow the user to reroll if they dont like the image --- potentia reroll idea
+-   author section of the embed
+-   write tests
+-   ???
+-   push to aws
+-   reroll
 
 ## refs
 

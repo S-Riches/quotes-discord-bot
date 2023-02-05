@@ -9,7 +9,10 @@
         "--------Tests--------": "",
         "test": "jest",
         "watchAll": "jest --watchAll",
-        "watchApp": "jest --watch /test/app.test.js"
+        "watchApp": "jest --watch /test/app.test.js",
+        "--------Lint--------": "",
+        "lint" : "npx eslint --fix test && npx eslint --fix src"
+
     },
     "repository": {
         "type": "git",
