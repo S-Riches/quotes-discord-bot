@@ -12,7 +12,7 @@ function createImage(fileName, data) {
     // * save that image to a local storage instance
     // handle punctuation to avoid embed issues
     fileName = String(fileName).replace(
-        RegExp(/[.,/#!$%^&*;:'{}=\-_`~() ]/g),
+        RegExp(/[.,/#!$%^&*;:'{}=\-_`~()? ]/g),
         '',
     );
     fs.writeFileSync(`${dirPath}/${fileName}.jpg`, buffer);
