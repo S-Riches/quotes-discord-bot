@@ -1,6 +1,7 @@
 // imports
 const fs = require("fs");
-
+const path = require("path");
+const dirPath = path.join(__dirname, "images");
 // flow
 // * take in the base64 data
 // takes in the data and then converts to an image that is stored in a local folder in the code
@@ -10,12 +11,12 @@ function createImage(fileName, data) {
     const buffer = Buffer.from(data, "base64");
     // * save that image to a local storage instance
     // handle spaces
+    // TODO refactor this to remove all punctuation
     fileName = String(fileName).replace(RegExp(/ /g), "_");
     console.log(fileName);
-    fs.writeFileSync(`${fileName}.jpg`, buffer);
+    fs.writeFileSync(`${dirPath}/${fileName}.jpg`, buffer);
     console.log(`created ${fileName}`);
+    return fileName + ".jpg";
 }
 
 module.exports = { createImage };
-// * upload it to discord channel
-// * then delete it off the local storage instance (hopefully we can get discord to host the images for us)

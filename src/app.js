@@ -1,8 +1,16 @@
 // import basic discord js classes
-const { Client, Events, GatewayIntentBits } = require("discord.js");
+const {
+    Client,
+    Events,
+    GatewayIntentBits,
+    EmbedBuilder,
+    AttachmentBuilder,
+} = require("discord.js");
 const dotenv = require("dotenv").config();
 const aiImage = require("./getAiImage.js");
 const convertBase64 = require("./convertBase64ToImage.js");
+const fs = require("fs");
+const path = require("path");
 
 // grab the discord token from the .env file
 const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
@@ -40,7 +48,19 @@ function createClientInstance() {
             console.log(`prompt = ${prompt}`);
             let data = await aiImage.generateAiImage(prompt);
             // creates the image
-            convertBase64.createImage(prompt, data);
+            const imageName = convertBase64.createImage(prompt, data);
+            // * upload it to discord channel
+            console.log(imageName);
+            const file = new AttachmentBuilder(`./src/images/${imageName}`);
+            const responseEmbed = new EmbedBuilder()
+                .setTitle(prompt)
+                .setImage(`attachment://${imageName}`);
+            await client.channels.cache
+                .get(message.channel.id)
+                .send({ embeds: [responseEmbed], files: [file] });
+            // * then delete it off the local storage instance (hopefully we can get discord to host the images for us)
+            let dirPath = path.join(__dirname, "images");
+            fs.unlinkSync(`${dirPath}/${imageName}`);
         }
     });
 
