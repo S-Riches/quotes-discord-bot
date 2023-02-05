@@ -1,15 +1,16 @@
-const { Client } = require("craiyon");
+/* eslint-disable no-undef */
+const { Client } = require('craiyon');
 
-describe("craiyon ai testing", () => {
-    let testReturnData = "";
+describe('craiyon ai testing', () => {
+    let testReturnData = '';
     beforeAll(async () => {
-        console.log("api call being made, takes up to 2 minutes - sorry :(");
+        console.log('api call being made, takes up to 2 minutes - sorry :(');
         const craiyon = new Client();
         testReturnData = await craiyon.generate({
-            prompt: "test",
+            prompt: 'test',
         });
     }, 120000);
-    test("the api is returning base64 values", () => {
+    test('the api is returning base64 values', () => {
         expect(testReturnData._images[0].base64).not.toBeUndefined();
     });
 });
