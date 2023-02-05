@@ -50,7 +50,6 @@ function createClientInstance() {
             // creates the image
             const imageName = convertBase64.createImage(prompt, data);
             // * upload it to discord channel
-            console.log(imageName);
             const file = new AttachmentBuilder(`./src/images/${imageName}`);
             const responseEmbed = new EmbedBuilder()
                 .setTitle(prompt)

@@ -11,9 +11,10 @@ function createImage(fileName, data) {
     const buffer = Buffer.from(data, "base64");
     // * save that image to a local storage instance
     // handle spaces
-    // TODO refactor this to remove all punctuation
-    fileName = String(fileName).replace(RegExp(/ /g), "_");
-    console.log(fileName);
+    fileName = String(fileName).replace(
+        RegExp(/[.,\/#!$%\^&\*;:{}=\-_`~() ]/g),
+        "_"
+    );
     fs.writeFileSync(`${dirPath}/${fileName}.jpg`, buffer);
     console.log(`created ${fileName}`);
     return fileName + ".jpg";
