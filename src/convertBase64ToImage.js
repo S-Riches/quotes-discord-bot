@@ -15,8 +15,16 @@ function createImage(fileName, data) {
         RegExp(/[.,/#!$%^&*;:'{}=\-_`~()? ]/g),
         '',
     );
-    fs.writeFileSync(`${dirPath}/${fileName}.jpg`, buffer);
+    try {
+        // try and write image to /images dir
+        fs.writeFileSync(`${dirPath}/${fileName}.jpg`, buffer);
+    }
+    catch (e) {
+        // catch and log error
+        console.log(e);
+    }
     console.log(`created ${fileName}`);
+    // return file name of created image
     return fileName + '.jpg';
 }
 

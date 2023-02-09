@@ -25,9 +25,12 @@ very very simple functionality
 -   readme /
 -   ???
 -   push to aws
--   reroll /
--   potentially look into kafka, for allowing the storage of the base 64 data to allow the user to reroll if they dont like the image --- potentia reroll idea X
-
+-   reroll / - done
+-   potentially look into kafka, for allowing the storage of the base 64 data to allow the user to reroll if they dont like the image --- potentia reroll idea X - done
+-   startup checks (files and folders present) - done
+-   commented all the things - done
+-   need a better way of getting th author as if " - " isn't present the promt is used as the author tag and that looks a bit mid
+-   add a way of not having the same image appear twice when rerolling - its not a massive thing but would improve ux
 ## refs
 
 see [discord.js](https://discord.js.org/#/)
