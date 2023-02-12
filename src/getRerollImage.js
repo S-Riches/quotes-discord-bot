@@ -4,7 +4,7 @@ const base64img = require('./convertBase64ToImage');
 async function getRerollImage(messageID, input) {
     // Create an empty json object to store our ✨stuff✨ in (we storing data in here btw)
     const dirPath = path.join(__dirname, 'reroll');
-    
+
 
     try {
         // open json file of name messageID

@@ -38,7 +38,7 @@ function createClientInstance() {
     client.once(Events.ClientReady, (c) => {
         // When strating the application clean the log file
         cleanLog.cleanupRLog();
-        
+
         console.log(`\nLogged in as ${c.user.tag}`);
     });
 

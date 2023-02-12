@@ -65,8 +65,6 @@ function init() {
         }
     });
 
-    
-
 
 }
 

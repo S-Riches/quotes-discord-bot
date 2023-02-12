@@ -21,7 +21,7 @@ function createImage(fileName, data) {
     }
     catch (e) {
         // catch and log error
-        console.log(e);
+        console.error(e);
     }
     console.log(`created ${fileName}`);
     // return file name of created image

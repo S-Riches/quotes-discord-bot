@@ -11,11 +11,7 @@ function storeReroll(messageID, data) {
     // Push data to json object
     aiData.data.push({ 'dataTime': date, 'images': [data] });
     // write stringified json object to file with name of message id the bot created
-    fs.writeFile(`${dirPath}/${messageID}.json`, JSON.stringify(aiData), function(err) {
-        if (err) {
-            // Some other error
-            throw err;
-        }
+    fs.writeFile(`${dirPath}/${messageID}.json`, JSON.stringify(aiData), () => {
         // Once the file has been written we are going to write it to a json log file so the datetime of each file can be read without having to open each file
         fs.readFile(`${dirPath}/reroll_log.json`, function(err, f) {
 
